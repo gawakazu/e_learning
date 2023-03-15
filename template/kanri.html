@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block header %}
+    <link rel='stylesheet' type="text/css" href="{% static 'main.css' %}"></link>
+    <title>test</title>
+{% endblock header%}
+{% block content %}
+<div class="text_input">
+        <navi>
+            <li class="navi"><a href="{% url 'main' %}"  class="navi_movable">Main</a></li>
+            <li class="navi">Task</li>
+            <li class="navi">Text</li>
+            <li class="navi">Exam</li>
+            <li class="navi">Result</li>
+            <li class="navi_current">Info</li>
+        </navi>
+        <h2>kanri</h2>
+        <hr>
+        <form method ='post'>{% csrf_token %}
+        <table>
+            <tr>
+                <th class="info_th">Folder</th>
+                <th class="info_th">Task</th>
+                <th class="info_th">Select</th>
+            </tr> 
+            {% for i,j in add_folder %}
+            <tr>
+                <td class="info_td">                   
+                    {{i}}
+                </td>
+                <td class="info_td">
+                    {{j}}
+                </td>
+                <td class="info_td">
+                    <input type="checkbox" name="select" value ="{{i}},{{j}}">
+                </td>
+            </tr>
+            {% endfor %}
+            {{task_name}}
+        </table>
+        <button type="submit" class="btn" >DownLoad</button>
+        </form>
+        <br>
+        
+
+
+{% endblock content %}
+
+

@@ -1,0 +1,25 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+{% block header %}
+    <title>login</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'main.css' %}"></link>
+{% endblock header %}
+
+{% block content %} 
+
+    <h2 class="text">E-Learning</h2>
+    <h5>ID、パスワードを入力してログインしてください。</h5>
+    <body>
+        <form action="" method="POST" class="text_input">
+            {{ form.non_field_errors }}
+            {% for field in form %}
+                {{ field }}
+                {{ field.errors }}
+                <hr>
+            {% endfor %}
+            <button type="submit" class="btn">Login</button>{% csrf_token %}
+        </form>
+    </body>
+    
+{% endblock content %}

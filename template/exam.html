@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block header %}
+    <link rel='stylesheet' type="text/css" href="{% static 'main.css' %}"></link>
+    <title>Exam</title>
+{% endblock header%}
+{% block content %}
+<div class="text_input">
+    <form method="POST">{% csrf_token %}
+        <navi>
+            <li class="navi"><a href="{% url 'main' %}"  class="navi_movable">Main</a></li>
+            <li class="navi">Task</li>
+            <li class="navi">Text</li>
+            <li class="navi_current">Exam</li>
+            <li class="navi">result</li>
+            <li class="navi">Info</li>
+        </navi>
+        <h2>テスト</h2>
+        <hr>
+       
+        <table style="margin:auto;">
+            {% for i in question_and_choice %}  
+                {% if forloop.counter <= 1 %}
+                    <a>{{ i }}</a>
+                    <hr>
+                {% else %}
+                    {% if answer > 9 %}
+                        <tr >
+                            <td >
+                                <input type="checkbox" value="{{forloop.counter}}" name="choice" style="text-align:right;">
+                            </td>   
+                            <td style="text-align:left">
+                                <label>{{ i }}</label>
+                            </td>    
+                        </tr >
+                    {% else %}
+                        <tr>
+                            <td>
+                                <input type="radio" value="{{forloop.counter}}" name="choice" >
+                            </td> 
+                            <td style="text-align:left">
+                                <label>{{ i }}</label>
+                            </td>  
+                        </tr>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        </table>
+
+        <button type="submit" class="btn">Answer</input>
+    </form>
+</div>
+{% endblock content %}

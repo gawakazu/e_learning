@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block header %}
+    <link rel='stylesheet' type="text/css" href="{% static 'main.css' %}"></link>
+    <title>Info</title>
+{% endblock header%}
+{% block content %}
+<div class="text_input">
+        <navi>
+            <li class="navi_movable"><a href="{% url 'main' %}"  class="navi_movable">Main</a></li>
+            <li class="navi">Task</li>
+            <li class="navi">Text</li>
+            <li class="navi">Exam</li>
+            <li class="navi">Result</li>
+            <li class="navi_current">Info</li>
+        </navi>
+        <h2>テスト結果の推移</h2>
+        <h3></h3>
+        <hr>
+
+        <form method ='post'>{% csrf_token %}
+            <table class="result_table">
+                <tr >
+                    <th class="info_th" >Task</th>
+                    <th class="info_th">Select</th>
+                </tr> 
+                {% for i,j in complete_data %}
+                <tr>
+                    <td class="info_td">                   
+                        {{i}}
+                    </td>
+        
+                    <td class="info_td">
+                        <input type="radio" name="select" value ="{{i}},{{j}}">
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+            <br>
+            <button type="submit" class="btn">Print out</input>
+        </form>
+        <br>
+
+{% endblock content %}
+
+

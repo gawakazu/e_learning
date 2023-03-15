@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %} 
+{% block header %}
+    <link rel='stylesheet' type="text/css" href="{% static 'main.css' %}"></link>
+    <title>Text</title>
+{% endblock header %}
+{% block content %}
+    <div class="text_input">
+        <navi>
+            <li class="navi_movable"><a href="{% url 'main' %}" class="navi_movable">Main</a></li>
+            <li class="navi">Task</li>
+            <li class="navi_current">Text</li>
+            <li class="navi">Exam</li>
+            <li class="navi">Result</li>
+            <li class="navi">Info</li>
+        </navi>
+        <h2>テキスト</h2>
+        <hr>
+        <h5>学習後、Taskﾎﾞﾀﾝで戻り他資料を学習してください。必要に応じPDFを取得してください。</h5>
+        <a class="btn" href="{% url 'task' material %}">Task</a>
+        <a class="btn" href="{{directory}}">PDF</a>
+    </div>
+        <div>
+            <!--<object data="{{'/static/20230201/犬を飼い始めたら001.pdf'}}#view=Fit&Page=1" width="800px" height="600px" class="pdf"></object>-->
+            <object data="{{directory}}#view=Fit&Page=1" width="800px" height="600px" class="pdf"></object>
+        </div>
+   
+{% endblock content %}

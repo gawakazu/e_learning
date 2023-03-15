@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %} 
+{% block header %}
+    <link rel="stylesheet" type="text/css" href="{% static 'main.css' %}"></link>
+    <title>Main</title>
+{% endblock header %}
+{% block content %}
+<div class="text_input">
+    <navi>
+        <li class="navi_current">Main</li>
+        <li class="navi">Task</li>
+        <li class="navi">Text</li>
+        <li class="navi">Exam</li>
+        <li class="navi">Result</li>
+        <li class="navi_movable"><a href='{% url "information" %}' id="info" >Info</a></li>
+    </navi>
+    <h2>タスク一覧</h2>
+    <hr>
+    <h5>タスクを選択してください</h5>
+    <!--{{data_list}}-->
+    {% for i in object_list %} 
+        <a href='{% url "task" i.pk %}' class="task_btn">{{i.task}}</a>
+        <br>
+    {% endfor%}
+<a href='{% url "logout" %}' id="logout">Logout</a>
+</div>
+{% endblock content %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block header %}
+    <link rel='stylesheet' type="text/css" href="{% static 'main.css' %}"></link>
+    <title>Index</title>
+{% endblock header%}
+{% block content %}
+<div class="text_input">
+        <navi>
+            <li class="navi"><a href="{% url 'main' %}"  class="navi_movable">Main</a></li>
+            <li class="navi">Task</li>
+            <li class="navi">Text</li>
+            <li class="navi">Exam</li>
+            <li class="navi">Result</li>
+            <li class="navi_current">Info</li>
+        </navi>
+        <h2>テスト結果の推移</h2>
+        <hr>
+        <img src="data:image/png;base64,{{ chart | safe }}">
+        <br><br>
+        
+        <a href="{% url 'information' %}"  class="btn">Info</a>
+{% endblock content %}

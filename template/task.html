@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %} 
+{% block header %}
+    <link rel='stylesheet' type="text/css" href="{% static 'main.css' %}"></link>
+    <title>Task</title>
+{% endblock header %}
+{% block content %}
+    <div class="text_input">
+        <navi>
+            <li class="navi_movable"><a href="{% url 'main' %}" class="navi_movable" >Main</a></li>
+            <li class="navi_current">Task</li>
+            <li class="navi">Text</li>
+            <li class="navi">Exam</li>
+            <li class="navi">Result</li>
+            <li class="navi">Info</li>
+        </navi>
+        <h2>テキスト一覧</h2>
+        <hr>
+        <h5>資料を選択して、学習を始めてください。</h5>
+        {% for i,j in data_list %} 
+            {% if j == '1' %}
+                <a href="{% url 'material' i %}" class="move">□{{i}}</a>
+                <br>
+            {% else %}
+                <a href="{% url 'material' i %}" class="move">☒{{i}}</a>
+                <br>
+            {% endif %}
+        {% endfor%}
+            <h6 style="color:red">☒は過去に学習した資料です。</h6>
+        {% if "1" not in learn_status %}
+            <a href="{% url 'exam' task %}" class="move">テスト</a>
+        {% else %}
+            <h6 style="color:red">全て学習後、テストボタンが表示されます。</h6>
+        {% endif %}
+    </div>
+{% endblock content %}

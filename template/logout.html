@@ -1,0 +1,17 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+{% block header %}
+    <title>logout</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'main.css' %}"></link>
+{% endblock header %}
+
+{% block content %} 
+
+<body>
+    <h2>ログアウトしました。</h2>
+    <p><a href="{% url 'login' %}" class="btn">Login</a></p>
+</body>
+
+    
+{% endblock content %}
