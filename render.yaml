@@ -1,7 +1,7 @@
 databases:
   - name: e_learning_db
     databaseName: e_learning_db
-    user: django_user
+    user: django_users
     region: singapore
     plan: starter
  
