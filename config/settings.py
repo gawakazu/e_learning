@@ -28,11 +28,9 @@ env.read_env(os.path.join(BASE_DIR, ".env"))
 SECRET_KEY = 'django-insecure-_)(3p-_0g@63pw7=tk*_ko2&2w7$sptk$u=nb%lv19@pznz$b#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = [
-    '*'
-]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -50,7 +48,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    #'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -133,8 +131,9 @@ AUTH_USER_MODEL = "jobplace.CustomUser"
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
 STATIC_ROOT = str(BASE_DIR / "staticfiles")
-STATICFILES_STRAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+#STATICFILES_STRAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
