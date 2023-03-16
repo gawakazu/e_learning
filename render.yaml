@@ -1,7 +1,7 @@
 databases:
-  - name: e_learning_db
-    databaseName: e_learning_db
-    user: django_users
+  - name: e_learning
+    databaseName: e_learning
+    user: django_user
     region: singapore
     plan: starter
  
@@ -16,11 +16,11 @@ services:
     branch: master
     healthCheckPath: /
     buildCommand: "./build.sh"
-    startCommand: "gunicorn config.wsgi:application"
+    startCommand: "gunicorn e_learning.wsgi:application"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: e_learning_db
+          name: e_learning
           property: connectionString
       - key: SECRET_KEY
         generateValue: true
