@@ -4,6 +4,7 @@ from django.conf.urls.static import static
 from .views import MainView,TaskView,MaterialView,ExamView,ResultView,LoginView,LogoutView,KanriView,InformationView,IndexView#,RetaskView
 
 urlpatterns =[
+    path('',LoginView.as_view(),name='login'),
     path('login/',LoginView.as_view(),name='login'),
     path('logout/',LogoutView.as_view(),name='logout'),
     path('main/',MainView.as_view(),name='main'),
