@@ -3,7 +3,7 @@ databases:
     databaseName: e_learning_db
     user: django_user
     region: singapore
-    plan: free
+    plan: starter
  
 
 
@@ -12,7 +12,7 @@ services:
     name: e_learning
     env: python
     region: singapore
-    plan: free
+    plan: starter
     branch: master
     healthCheckPath: /
     buildCommand: "./build.sh"
