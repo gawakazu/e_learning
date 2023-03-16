@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-_)(3p-_0g@63pw7=tk*_ko2&2w7$sptk$u=nb%lv19@pznz$b#
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'e-learning.onrender.com',
+    'e-learning-fm53.onrender.com',
     '127.0.0.1',
 ]
 
