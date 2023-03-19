@@ -23,7 +23,7 @@ def select_conversion(select):
     add_folder = [i.split(',')[0] for i in select] # 20220601 フォルダ名
     task_name = [i.split(',')[1] for i in select] # python
     differ_file = [os.listdir('./static/'+ i) for i in add_folder]
-    materials = [[j[:-4] for j in i if j.find('pdf')>0] for i in differ_file] ### pdfのファイル名 ,python001.pdf->python001
+    materials = [[j[:-4] for j in i if j.find('png')>0] for i in differ_file] ### pdfのファイル名 ,python001.pdf->python001
     csv_file = [[j for j in i if j.find('csv')>0] for i in differ_file] ##csv_file csvファイル名　python.csv　拡張子付き
     file_name = []
     for i in range(len(add_folder)):
