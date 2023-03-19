@@ -42,7 +42,10 @@ def task_conversion(already_list,folder_list):
     already_file_list =[i.material_dir for i in already_list]
     add_folder = list(set(folder_list) - set(already_file_list)) #登録さていないフォルダを検出
     differ_file = [os.listdir('./static/'+ i) for i in add_folder]
-    task_name = [i[0][:-4] for i in differ_file]
+    #print('--diff--',differ_file)
+    #task_name = [i[0][:-4] for i in differ_file]
+    task_name = [[j[:-4] for j in i if j.find('csv')>0][0]  for i in differ_file ]
+    #print("---task---",task_name)
     return task_name,add_folder
 
 def xy(select):
